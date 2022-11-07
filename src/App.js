@@ -14,12 +14,18 @@ function App() {
     fetch(`${baseUrl}/categories`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
+        // console.log(data)
+        SetCategories(data)
       })
   }, [])
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
+    console.log(titleRef)
+    console.log(descriptionRef)
+    console.log(categoryRef)
+    
   }
 
   return (
@@ -29,10 +35,9 @@ function App() {
         <br />
         <textarea name="" id="" cols="30" rows="10"></textarea>
         <select name="category_id" id="category_id">
-          {categories.map((category) => }
-          {/* {categories.map((category) => (
-            <option key={category.id}>{category}</option>
-          )} */}
+          {categories.map((category) => (
+            <option key={category.id}>{category.title}</option>
+          )}
         </select>
         <button>Submit</button>
       </form>
